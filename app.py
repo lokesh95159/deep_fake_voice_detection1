@@ -456,9 +456,9 @@ def load_audio(audiopath, sampling_rate=22000):
         else:
             assert False, f"Unsupported audio format provided:{audiopath[-4:]}"
     elif isinstance(audiopath, io.BytesIO):
-        audio, lsr = torchaudio.load(audiopath)
+        audio, lsr = torchaudio.load(audiopath, backend='sox_io')
         audio = audio[0]
-    if lsr != sampling_rate:
+    if lsr!= sampling_rate:
         audio = torchaudio.functional.resample(audio, lsr, sampling_rate)
     if torch.any(audio > 2) or not torch.any(audio < 0):
         print(f"Error with audio data. Max={audio.max()} min={audio.min()}")
