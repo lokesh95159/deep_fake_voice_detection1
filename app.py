@@ -485,7 +485,7 @@ def main():
 
     st.title("Audio Forgery Alert:Uncovering Artificial audio with DeepFake Detection")
     # file uploader
-    uploaded_file = st.file_uploader("Insert the audio file ", type=['mp3','mp4'])
+    uploaded_file = st.file_uploader("Insert the audio file ( Note: The Audio File is Limited to 1 MB the Update will give Soon to Upload Large Files.)", type=['mp3','mp4'])
     if uploaded_file is not None:
         if st.button("Check the Audio"):
             col1, col2  = st.columns(2)
